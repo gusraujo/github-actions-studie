@@ -1,5 +1,17 @@
 name: 'Hello World Action'
 description: 'Greet someone and record the time'
+
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: 'composite'
+  steps:
+    - name: Hello world action step
+      id: hello
+      run: echo "Hello, ${{ inputs.who-to-greet }}!"
+
+    - name: Record the time
+      id: time
+      run: echo "::set-output name=time::$(date)"
+
+    - name: Get the output time
+      id: get-time
+      run: echo "The time was ${{ steps.time.outputs.time }}"
