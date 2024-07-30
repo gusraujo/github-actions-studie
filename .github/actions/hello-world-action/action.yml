@@ -6,12 +6,15 @@ runs:
   steps:
     - name: Hello world action step
       id: hello
+      shell: bash
       run: echo "Hello, ${{ inputs.who-to-greet }}!"
 
     - name: Record the time
       id: time
+      shell: bash
       run: echo "::set-output name=time::$(date)"
 
     - name: Get the output time
       id: get-time
+      shell: bash
       run: echo "The time was ${{ steps.time.outputs.time }}"
