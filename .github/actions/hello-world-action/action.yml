@@ -1,1 +1,5 @@
-
+name: 'Hello World Action'
+description: 'Greet someone and record the time'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
