@@ -1,0 +1,18 @@
+name: Second workflow
+on: [push]
+
+jobs:
+  run-shell-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: |
+          echo "Hello, world!"
+          echo "The time is $(date)."
+          echo "The current directory is $(pwd)."
+          echo "The repository is $(basename $(pwd)).
+      - name: Multiple commands
+        run: |
+          echo "This is the first command."
+          echo "This is the second command."
+          echo "This is the third command."
