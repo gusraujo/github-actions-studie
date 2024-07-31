@@ -16,3 +16,16 @@ jobs:
           echo "This is the first command."
           echo "This is the second command."
           echo "This is the third command."
+  parallel-job-macos:
+    runs-on: macos-latest
+    steps:
+      - name: View SW versions
+        run: sw_vers
+  dependant-job:
+    runs-on: windows-latest
+    needs: [run-shell-commands]
+    steps:
+      - name: echo a string
+        run: Write-Output "Windows String"
+      - name: Error step
+        run: errorcommand
